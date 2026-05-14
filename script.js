@@ -5,9 +5,21 @@ const filterInput = document.querySelector("#todo-search");
 let isEditing = false;
 let editId = null;
 let todos = [
-  { id: 1, text: "get bread", completed: true },
-  { id: 2, text: "get eggs", completed: false },
-  { id: 3, text: "get milk", completed: false },
+  {
+    id: 1,
+    text: "get some eggs from the market and make an omlette",
+    completed: true,
+  },
+  {
+    id: 2,
+    text: "get some milk from the market and make tea",
+    completed: false,
+  },
+  {
+    id: 3,
+    text: "get some bread from the market and make an toast",
+    completed: false,
+  },
 ];
 
 function filterTodos() {
@@ -25,23 +37,23 @@ function renderTodos(todoList = todos) {
     const list = document.createElement("li");
     list.classList =
       "flex flex-wrap justify-between items-center gap-3 p-3 rounded bg-amber-200";
-    list.innerHTML = `<p class="flex-1 min-w-[120px] text-base sm:text-lg 4 ${todo.completed ? "line-through" : ""}">${todo.text}</p>
+    list.innerHTML = `<p class="flex-1 min-w-[120px] text-center text-base sm:text-lg 4 ${todo.completed ? "line-through" : ""}">${todo.text}</p>
               <div class="flex flex-wrap justify-end gap-2">
                 <button
                   id="edit-btn-${todo.id}"
-                  class="px-3 py-1.5 sm:px-4 sm:py-2 bg-black text-white rounded text-xs sm:text-sm md:text-base whitespace-nowrap"
+                  class="px-3 py-1.5 sm:px-4 sm:py-2 bg-amber-500 text-white rounded text-xs sm:text-sm md:text-base whitespace-nowrap"
                 >
                   Edit
                 </button>
                 <button
                   id="delete-btn-${todo.id}"
-                  class="px-3 py-1.5 sm:px-4 sm:py-2 bg-black text-white rounded text-xs sm:text-sm md:text-base whitespace-nowrap"
+                  class="px-3 py-1.5 sm:px-4 sm:py-2 bg-amber-700 text-white rounded text-xs sm:text-sm md:text-base whitespace-nowrap"
                 >
                   Delete
                 </button>
                 <button
                   id="toggle-btn-${todo.id}"
-                  class="px-3 py-1.5 sm:px-4 sm:py-2 bg-black text-white rounded text-xs sm:text-sm md:text-base whitespace-nowrap"
+                  class="px-3 py-1.5 sm:px-4 sm:py-2 bg-amber-900 text-white rounded text-xs sm:text-sm md:text-base whitespace-nowrap"
                 >
                   ${todo.completed ? "Completed" : "Pending"}
                 </button>

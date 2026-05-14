@@ -33,6 +33,9 @@ function filterTodos() {
 
 function renderTodos(todoList = todos) {
   todoListContainer.innerHTML = " ";
+  if (todoList.length === 0) {
+    todoListContainer.innerHTML = `<p class="text-4xl font-bold text-center"> Todo list is Empty </p> `;
+  }
   todoList.forEach((todo) => {
     const list = document.createElement("li");
     list.classList =

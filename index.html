@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./src/output.css" rel="stylesheet" />
+    <script src="script.js" defer></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="w-full h-screen">
+      <div
+        class="w-full max-w-5xl mx-auto bg-amber-50 flex flex-col items-center"
+      >
+        <h1 class="w-full text-5xl font-extrabold text-center py-4">
+          Todo List
+        </h1>
+        <div
+          class="w-full px-2 sm:w-[80%] flex justify-center items-center h-28 gap-2 bg-amber-50"
+        >
+          <input
+            type="text"
+            id="todo-input"
+            class="flex-1 w-full h-11 px-3 border rounded"
+            placeholder="New task..."
+          />
+          <button
+            type="button"
+            id="add-btn"
+            class="px-4 py-3 bg-black text-white rounded whitespace-nowrap text-sm sm:text-base md:text-lg"
+          >
+            Add Todo
+          </button>
+        </div>
+        <div
+          class="w-full bg-amber-100 flex flex-col items-center space-y-2 p-4"
+        >
+          <div
+            class="w-full px-2 sm:w-[80%] flex justify-center items-center h-28 gap-2 bg-amber-200 rounded-xl"
+          >
+            <input
+              type="text"
+              id="todo-search"
+              class="w-[40%] h-10 px-2 bg-white border rounded"
+              placeholder="Filter Todos..."
+            />
+          </div>
+          <ul
+            class="w-full flex-col gap-2 space-y-3 bg-amber-50 rounded-lg p-4"
+            id="todo-list"
+          >
+            <li
+              class="flex flex-wrap justify-between items-center gap-3 p-3 rounded bg-amber-200"
+            >
+              <p class="flex-1 min-w-[120px] text-base sm:text-lg">Cookies</p>
+              <div class="flex flex-wrap justify-end gap-2">
+                <button
+                  id="edit-btn"
+                  class="px-3 py-1.5 sm:px-4 sm:py-2 bg-black text-white rounded text-xs sm:text-sm md:text-base whitespace-nowrap"
+                >
+                  Edit
+                </button>
+                <button
+                  id="delete-btn"
+                  class="px-3 py-1.5 sm:px-4 sm:py-2 bg-black text-white rounded text-xs sm:text-sm md:text-base whitespace-nowrap"
+                >
+                  Delete
+                </button>
+                <button
+                  id="toggle-btn"
+                  class="px-3 py-1.5 sm:px-4 sm:py-2 bg-black text-white rounded text-xs sm:text-sm md:text-base whitespace-nowrap"
+                >
+                  Completed
+                </button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

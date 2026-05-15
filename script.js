@@ -4,6 +4,7 @@ const todoListContainer = document.querySelector("#todo-list");
 const filterInput = document.querySelector("#todo-search");
 let isEditing = false;
 let editId = null;
+//dummy data
 let todos = [
   {
     id: 1,
@@ -21,7 +22,7 @@ let todos = [
     completed: false,
   },
 ];
-
+//filter todos on text input
 function filterTodos() {
   const textSearch = filterInput.value.trim().toLowerCase();
   let filteredTodos = [...todos];
@@ -31,6 +32,7 @@ function filterTodos() {
   renderTodos(filteredTodos);
 }
 
+//render todos
 function renderTodos(todoList = todos) {
   todoListContainer.innerHTML = " ";
   if (todoList.length === 0) {
@@ -66,6 +68,7 @@ function renderTodos(todoList = todos) {
   });
 }
 
+//add todo to ui
 function addTodos() {
   let textInput = input.value.trim().toLowerCase();
   if (textInput === "") return;
@@ -88,17 +91,20 @@ function addTodos() {
   renderTodos();
 }
 
+//delete todo
 function deleteTodos(id) {
   todos = todos.filter((todo) => todo.id !== id);
   renderTodos();
 }
 
+//mark todo as complete or pending toggle
 function toggleTodo(id) {
   todos = todos.map((todo) =>
     todo.id === id ? { ...todo, completed: !todo.completed } : todo,
   );
 }
 
+//edit todo and update
 function editTodo(id) {
   let filterTodo = todos.find((todo) => todo.id === id);
   console.log(filterTodo.text);
@@ -108,6 +114,7 @@ function editTodo(id) {
   isEditing = true;
 }
 
+//used event delegation to attach eventlistner to the container
 todoListContainer.addEventListener("click", (e) => {
   const getId = e.target.id;
   if (getId.includes("delete-btn")) {
@@ -125,7 +132,11 @@ todoListContainer.addEventListener("click", (e) => {
     editTodo(id);
   }
 });
-//event listenrs
+//add todo on click event
 addBtn.addEventListener("click", addTodos);
+
+//fire on text input if filter todos get input text
 filterInput.addEventListener("input", filterTodos);
+
+//render todos on first load
 renderTodos();
